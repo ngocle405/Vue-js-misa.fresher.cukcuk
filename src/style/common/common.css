@@ -1,0 +1,55 @@
+.m-row {
+    /* position: relative; */
+    display: block;
+    width: 100%;
+}
+
+.m-row>label {
+    display: block;
+    margin-top: 10px;
+}
+
+.m-row .m-row-flex{
+    display: flex;
+}
+
+.m-text-center {
+    text-align: center;
+}
+
+.m-text-right {
+    text-align: right;
+}
+
+.m-text-left {
+    text-align: left;
+}
+.m-loadding{
+    display: none;
+    position: absolute;
+    top: 0;
+ right: 0;
+    left: 0;
+    bottom:0;
+    background-color:white;
+}
+.m-loadding .m-loadding-icon{
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #3498db;
+    
+
+    top: 50px;
+    left: 50px;
+    position: absolute;
+    border-radius:50% ;
+    animation: spin 2s linear infinite;
+}
+
+input.border-red{
+    border:  1px solid red;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,27 @@
+.m-header {
+    width: calc(100% - 224px);
+    height: 60px;
+    float: left;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    position: relative;
+}
+
+.m-header .m-header-left{
+    display: flex;
+    margin: auto 0;
+}
+
+.m-header .m-header-right {
+    display: flex;
+    align-items: center;
+    margin: auto 0;
+    justify-content: right;
+    margin-right: 16px;
+}
+
+.m-text-name-user {
+    line-height: 60px;
+    font-weight: bold;
+    padding-right: 8px;
+}

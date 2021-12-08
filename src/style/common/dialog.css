@@ -1,0 +1,166 @@
+/* 
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    top: 20%;
+    left: 40%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+   */
+  /* Add styles to the form container */
+
+
+
+/*  */
+.m-dialog {
+    position: relative;
+    border-radius: 4px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+/* DIALOG HEADER  */
+
+.m-dialog .m-dialog-header {
+    border-radius: 4px 4px 0 0;
+    padding: 24px 0px 24px 24px;
+}
+
+.m-dialog .m-dialog-header .m-dialog-title {
+    font-size: 20px;
+    font-weight: bolder;
+    width: 300px;
+}
+
+.m-dialog .m-dialog-header .m-dialog-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    right: 10px;
+    top: 10px;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.m-dialog .m-dialog-header .m-dialog-close:hover {
+    opacity: 1;
+}
+
+/* DIALOG CONTENT */
+
+.m-dialog .m-dialog-content {
+    display: flex;
+    align-items: center;
+    padding: 0 24px 0px 24px;
+    margin-bottom: 16px;
+}
+
+.m-dialog .m-dialog-content .m-dialog-icon {
+    width: 40px;
+    height: 45px;
+    flex-shrink: 0;
+    margin-right: 12px;
+    border-radius: 50%;
+    background-color: #E9EBEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 7px;
+}
+
+.m-dialog .m-dialog-content i {
+    padding-right: 8px;
+}
+
+.m-dialog .m-dialog-header .m-dialog-content button {
+    margin-bottom: 24px;
+    color: #019160;
+    background-color: #ffffff;
+    border: 1px solid #bbbbbb;
+}
+
+.m-dialog .m-dialog-content button:active {
+    border-color: #019160;
+}
+
+/* DIALOG FOOTER */
+
+.m-dialog .m-dialog-footer {
+    border-radius: 0px 0px 4px 4px;
+    background-color: #E9EBEE;
+    justify-content: end;
+    height: 60px;
+}
+
+.m-dialog .m-dialog-footer button {
+    float: right;
+    margin: 10px 16px 10px 16px;
+}
+
+/* POP Up List */
+
+.m-dialog ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.m-dialog .m-dialog-content li {
+    margin-top: 16px;
+}
+
+.m-dialog .m-dialog-content .m-btn-icon {
+    margin-bottom: 24px;
+}
+
+.m-dialog .m-list-notify i {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    color: red;
+}
+
+.m-dialog .m-dialog-content .m-li-line {
+    width: 100%;
+    height: 2px;
+    background-color: #E9EBEE;
+    margin: 16px 0px;
+}
+
+.m-dialog .m-btn-esc {
+    width: 24px;
+    float: right;
+}
+
+.m-dialog .m-btn-esc:hover {
+    background-color: #E9EBEE;
+}
+
+/* POP UP ADD NEW */
+
+.m-content-row>* {
+    margin-bottom: 8px;
+    margin-right: 16px;
+}
+
+.m-document-text span {
+    color: red;
+}
+
+.m-dialog-content .m-document-text {
+    padding-bottom: 4px;
+    color: #454545;
+    font-weight: bolder;
+}
+
+.m-dialog-content input {
+    width: 375px;
+}
+
+.m-dialog-content .m-datetime-picker {
+    width: 180px;
+}

@@ -1,0 +1,17 @@
+.m-popup {
+  display: none;
+  position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ background-color: white;
+ z-index: 9;
+  }
+  
+  .m-popup-auto-width{
+    width: auto !important;
+  }
+  .m-popup .m-popup-content{
+    display: flex;
+    padding: 20px;
+  }

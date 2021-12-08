@@ -1,0 +1,53 @@
+@import url('./style/common/common.css');
+@import url('.style/common/header.css');
+@import url('.style/common/navbar.css');
+@import url('.style/common/content.css');
+@import url('.style/common/grid.css');
+@import url('.style/common/navigation.css');
+@import url('.style/common/paging.css');
+@import url('.style/common/toolbar.css');
+@import url('.style/common/table.css');
+@import url('.style/common/dialog.css');
+
+@import url('./component/button.css');
+@import url('./component/input.css');
+@import url('.style/component/combobox.css');
+@import url('./component/navigation.css');
+@import url('./component/chip-status.css');
+@import url('./component/toast.css');
+@import url('/style/component/icon.css');
+@import url('./component/dropdown.css');
+@import url('./component/checkbox.css');
+@import url('./component/radio.css');
+@import url('./component/datetime-picker.css');
+@import url('./component/dialog.css');
+@import url('./component/popup.css');
+@import url('./component/modal.css');
+
+@import url('./page/employee-info.css');
+@import url('./page/employee.css');
+body {
+    margin: 0;
+    font-family: 'GoogleSans-Regular';
+    font-size: 13px;
+}
+
+@font-face {
+    font-family: 'GoogleSans-Black';
+    src: url('../assets/font/GoogleSans-Black.otf');
+}
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../assets/font/GoogleSans-Regular.otf');
+}
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../assets/font/GoogleSans-Light.otf');
+}
+
+@font-face {
+    font-family: 'GoogleSans-Regular';
+    src: url('../assets/font/GoogleSans-Thin.otf');
+}

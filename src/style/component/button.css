@@ -1,0 +1,227 @@
+.m-btn {
+    display: flex;
+    align-items: center;
+    background-color: #019160;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: normal;
+    padding: 0 24px;
+    text-align: center;
+    outline: unset;
+    border: none;
+    cursor: pointer;
+}
+
+.m-btn-icon {
+    display: flex;
+    background-color: #019160;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: normal;
+    outline: unset;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding-right: 16px;
+    padding-left: 8px;
+    min-width: 100px;
+}
+
+.m-btn:hover, .m-btn-icon:hover {
+    background-color: #2fbe8e;
+}
+
+.m-btn:active, .m-btn-icon:active {
+    background-color: #01b075;
+}
+
+.m-second-button {
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    height: 40px;
+    color: #000000;
+    padding: 0 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.m-second-button:hover {
+    background-color: #e9ebee;
+    border: 1px solid #bbbbbb;
+}
+
+.m-second-button:active {
+    color: #ffffff;
+    background-color: #01b075;
+    border: 1px solid #ffffff;
+}
+
+.m-btn-refresh {
+    background: url("../../assets/icon/refresh.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    float: right;
+    margin-right: 16px;
+    cursor: pointer;
+}
+
+.m-btn-pagingNext, .m-btn-pagingLast, .m-btn-pagingFirst, .m-btn-pagingPrev {
+    width: 24px;
+    height: 24px;
+    margin: 0 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #e9ebee;
+    background-repeat: no-repeat;
+}
+
+.m-btn-pagingNext {
+    background-image: url('../../assets/icon/btn-next-page.svg');
+}
+
+.m-btn-pagingNext:hover {
+    background-color: #ffffff;
+}
+
+.m-btn-pagingLast {
+    background-image: url('../../assets/icon/btn-lastpage.svg');
+}
+
+.m-btn-pagingLast:hover {
+    background-color: #ffffff;
+}
+
+.m-btn-pagingFirst {
+    background-image: url('../../assets/icon/btn-firstpage.svg');
+}
+
+.m-btn-pagingFirst:hover {
+    background-color: #ffffff;
+}
+
+.m-btn-pagingPrev {
+    background-image: url('../../assets/icon/btn-prev-page.svg');
+}
+
+.m-btn-pagingPrev:hover {
+    background-color: #ffffff;
+}
+
+.m-btn-iconDown {
+    display: flex;
+    background-color: #019160;
+    border-radius: 0%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    height: 40px;
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: normal;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    padding-right: 16px;
+    padding-left: 8px;
+    min-width: 150px;
+}
+
+.m-btn-iconDown:hover {
+    background-color: #2fbe8e;
+}
+
+.m-btn-iconDown:active {
+    background-color: #01b075;
+}
+
+.m-btn-down {
+    width: 40px;
+    height: 40px;
+    background-color: #019160;
+    border-radius: 0%;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    border-left: #2fbe8e;
+}
+
+.m-btn-down:hover {
+    background-color: #2fbe8e;
+}
+
+.m-btn-down:active {
+    background-color: #01b075;
+}
+
+.m-btn-cancel {
+    width: 120px;
+    height: 40px;
+    background-color: #E9EBEE;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.m-btn-cancel:hover {
+    background-color: #bbbbbb;
+}
+
+.m-btn-close {
+    width: 100px;
+    height: 40px;
+    background-color: #019160;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.m-btn-close:hover {
+    background-color: #01b075;
+}
+
+.m-btn-delete {
+    width: 100px;
+    height: 40px;
+    background-color: #F65454;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.m-btn-delete:hover {
+    background-color: #f36969;
+}
+
+.m-btn-esc {
+    padding: 4px 0px 6px 10px;
+    height: 24px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.m-btn-picker {
+    width: 40px;
+    height: 40px;
+    border-radius: 0%;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+}
+.m-btn-text{
+    margin-left: 8px;
+}

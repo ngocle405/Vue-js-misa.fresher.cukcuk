@@ -1,0 +1,138 @@
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color*/
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity  màn hình xung quanh bị mờ  */
+  }
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 26%;
+  }
+  /* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/*  */
+.m-modal-medium{
+    position: relative;
+}
+.m-modal-medium .m-modal{
+    background-color: #ffffff;
+    position:absolute;
+    width: 60vw;
+    max-width: unset;
+    /* detail */
+    left: 20%;
+    top: 24px;
+}
+
+/* MODAL HEADER */
+
+.m-modal .m-dialog-title.m-modal-heading{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* MODAL CONTENT */
+.m-modal-content{
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+/* MODAL LEFT */
+.m-modal-content .m-modal-left{
+    width: 13vw;
+    box-sizing: border-box;
+    margin: 0 5px 0 0;
+}
+.m-modal-left .m-modal-avatar label{
+    display: block;
+    width: 96%;
+    margin: auto;
+}
+.m-modal-left .m-modal-avatar label img{
+    width: 100%;
+    border: 1px solid #bbbbbb;
+    border-radius: 50%;
+}
+.m-modal-left .m-modal-avatar input{
+    display: none;
+}
+.m-modal-left .m-modal-notefile p{
+    text-align: center;
+    margin: 0;
+}
+
+
+/* MODAL RIGHT */
+
+.m-modal-content .m-modal-right{
+    width: 45vw;
+    margin-left: 10px;
+}
+.m-modal-right .m-modal-title{
+    position: relative;
+    text-transform: uppercase;
+    display: block;
+    font-size: 15px;
+}
+.m-modal-right .m-modal-title:after{
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    height: 0;
+    width: 86px;
+    border-bottom: 4px solid #019160;
+}
+
+.m-modal-row{
+    display: flex;
+    justify-content: start;
+}
+.m-modal-col{
+    width: 50%;
+}
+.m-modal-col .m-modal-group{
+    padding-right: 12px;
+}
+.m-modal-col .m-modal-group > div,
+.m-modal-col .m-modal-group div > input,
+.m-modal-col select
+{
+    box-sizing: border-box;
+    width: 100%;
+}
+.m-modal-group label{
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 4px;
+}
+.m-modal-group span{
+    color: red;
+}

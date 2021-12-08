@@ -1,0 +1,49 @@
+.m-paging {
+  margin-left: 24px;
+  margin-right: 24px;
+  display: flex;
+}
+
+.m-paging .m-text-paging {
+  margin: auto 0;
+}
+
+.m-paging .m-pagination {
+  margin: auto auto;
+}
+
+.m-paging-center {
+  align-items: center;
+}
+
+.m-paging .m-total-page {
+  margin: auto 0;
+}
+
+.m-pagination {
+  display: flex;
+}
+
+.m-number-page {
+  display: flex;
+}
+
+.m-circle-number {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #bbbbbb;
+  margin: 0 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-circle-number:hover {
+  background-color: #bbbbbb;
+}
+
+.m-circle-number:active {
+  background-color: #01b075;
+  color: #fff;
+}
