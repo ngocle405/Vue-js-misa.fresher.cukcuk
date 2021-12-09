@@ -3,7 +3,7 @@
     <div class="m-content-title">
       <div class="m-title-left">Danh sách nhân viên</div>
       <div class="m-add-employee">
-        <button id="btlAddData" @click="btnAddOnClick" class="m-btn-icon">
+        <button id="btlAddData" @click="btnAddOnClick()" class="m-btn-icon">
           <div class="m-icon-add"></div>
           Thêm nhân viên
         </button>
@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="m-content-main">
-      <table id="tblEmployee" class="m-table" entityId="EmployeeId">
+      <table id="tblEmployee" class="m-table" entityId="CustomerId">
         <thead class="m-table m-text-left">
           <tr>
             <th fieldValue="EmployeeCode">Mã nhân viên</th>
@@ -66,7 +66,8 @@
             <th fieldValue="PhoneNumber">Điện thoại</th>
             <th fieldValue="Email">Email</th>
             <th fieldValue="Address">Địa chỉ</th>
-            <th fieldValue="Salary" formatType="money">Mức lương cơ bản</th>
+            <th fieldValue="Salary" formatType="money">Tiền nợ</th>
+            <th fieldValue="Salary" formatType="money">Chức năng</th>
             <!-- <th fieldValue="DepartmentName">phòng ban</th> -->
             <!-- <th>Phòng ban</th> -->
             <!-- <th>Edit</th>
@@ -75,7 +76,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="customer in customers" :key="customer.customerId">
+          <tr v-for="customer in customers" :key="customer.CustomerId">
             <td>{{ customer.CustomerCode }}</td>
             <td>{{ customer.FullName }}</td>
             <td>{{ customer.Gender }}</td>
@@ -89,6 +90,12 @@
             <td>{{ customer.Address }}</td>
             <td>
               {{ customer.DebitAmount | formatCurrency(customer.DebitAmount) }}
+            </td>
+            <td>
+              <button @click="btnEditOnClick(customer.CustomerId)">Sửa</button>
+              <button @click="btnDeleteOnClick(customer.CustomerId)">
+                Xóa
+              </button>
             </td>
           </tr>
         </tbody>
@@ -126,6 +133,9 @@
       :isShow="isShowDialogDetail"
       @showDialog="showDialogParent"
       @loadData="loadData"
+      :CustomerId="CustomerId"
+      :customer="customer"
+      @save="btnSaveOnClick"
     />
     <!-- emit gọi đến @showdialog  -> gọi đến cha  -->
   </div>
@@ -141,33 +151,180 @@ export default {
     CustomerDetail,
   },
   methods: {
-    btnAddOnClick() {
-      //document.getElementById('dlgPopup').style.display="block";
-      this.showDialogParent(true);
+    /**
+     * sự kiện thêm mới hoặc sửa
+     */
+    btnSaveOnClick(customer) {
+      var me = this;
+      //lấy dữ liệu
+
+      if (me.CustomerId != "") {
+        // //gọi api thực hiện cất dữ liệu
+        axios
+          .put(
+            "http://cukcuk.manhnv.net/api/v1/Customerss/" + this.CustomerId,
+            customer
+          )
+          .then((res) => {
+            alert("Đã sửa thành công");
+            //thêm thành công thì tự động đóng form
+            this.showDialogParent(false);
+            //sự kiện load dữ liệu
+            me.loadData();
+            console.log(res);
+          })
+          .catch(function (res) {
+            const statusCode = res.response.status;
+            switch (statusCode) {
+              case 400:
+                alert(res.response.data.userMsg);
+                break;
+              default:
+                break;
+            }
+          });
+      } else {
+        axios
+          .post("http://cukcuk.manhnv.net/api/v1/Customerss", customer)
+          .then(() => {
+            alert("Đã thêm thành công");
+            //thêm thành công thì tự động đóng form
+            me.showDialogParent(false);
+            //sự kiện load dữ liệu
+            me.loadData();
+          })
+          .catch(function (res) {
+            const statusCode = res.response.status;
+            switch (statusCode) {
+              case 400:
+                alert(res.response.data.userMsg);
+                break;
+              default:
+                break;
+            }
+          });
+      }
     },
-    showDialogParent(isShow) {
-      this.isShowDialogDetail = isShow;
+    /**
+     * sự kiện xóa dữ liệu
+     */
+    btnDeleteOnClick(id) {
+      var me = this;
+      axios
+        .delete("http://cukcuk.manhnv.net/api/v1/Customerss/" + id)
+        .then((res) => {
+          alert("Đã xóa thành công");
+          //sự kiện load dữ liệu
+          me.loadData();
+          console.log(res);
+        })
+        .catch(function (res) {
+          const statusCode = res.response.status;
+          switch (statusCode) {
+            case 400:
+              alert(res.response.data.userMsg);
+              break;
+            default:
+              break;
+          }
+        });
+    },
+    /**
+     * CreateBy: LT Ngọc
+     * hàm định dạng date trong thẻ input
+     */
+    formatDate: function (data) {
+      if (data) {
+        const newDate = new Date(data);
+        var day = newDate.getDate();
+        day = day < 10 ? `0${day}` : day;
+        var month = newDate.getMonth() + 1;
+        month = month < 10 ? `0${month}` : month;
+        var year = newDate.getFullYear();
+        // return `${day}/${month}/${year}`;
+        return year + "-" + month + "-" + day;
+      }
+    },
+    /**
+     * sự kiện click form chi tiết (UPDATE)
+     * CreateBy: LT Ngọc
+     * createDate:9/12/2021
+     */
+    btnEditOnClick(CustomerId) {
+      this.CustomerId = CustomerId;
+      this.showDialogParent(true);
+      axios
+        .get(`http://cukcuk.manhnv.net/api/v1/Customerss/` + CustomerId)
+        .then((response) => {
+          this.customer = response.data;
+          console.log(response);
+
+          if (response.data.DateOfBirth != "") {
+            this.customer.DateOfBirth = this.formatDate(
+              response.data.DateOfBirth
+            );
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
 
+    /**
+     * sự kiện click (add)
+     * createBy:Ngọc lê (9/21/2021)
+     */
+
+    btnAddOnClick() {
+      axios
+        .get(`http://cukcuk.manhnv.net/api/v1/Customerss/NewCustomerCode`)
+        .then((response) => {
+          console.log(response);
+          this.customer.CustomerCode = response.data;
+          //$("txtemployeecode").focus();
+        })
+        .catch((e) => {
+          this.errors.push(e);
+        });
+
+      this.showDialogParent(true);
+    },
+    //
+    showDialogParent(isShow) {
+      //
+      this.isShowDialogDetail = isShow;
+    },
+    /**
+     * sự kiện load dữ liệu ra màn hình
+     * createBy:Ngọc lê (9/21/2021)
+     */
     loadData() {
-       axios
-      .get(`http://cukcuk.manhnv.net/api/v1/Customerss`)
-      .then((res) => {
-        this.customers = res.data;
-        console.log(res);
-      })
-      .catch((error) => console.log(error));
- 
+      axios
+        .get(`http://cukcuk.manhnv.net/api/v1/Customerss`)
+        .then((res) => {
+          this.customers = res.data;
+          console.log(res.data);
+        })
+        .catch((error) => console.log(error));
     },
   },
 
   data() {
     return {
       customers: [],
+      //khởi tạo 1 đối tượng bằng null
+      customer: {
+        CustomerCode: "",
+      },
       isShowDialogDetail: false,
+      CustomerId: "",
     };
   },
   filters: {
+    /**
+     * định dạng ngày tháng năm trên giao diện
+     * createBy:Ngọc lê (9/21/2021)
+     */
     formatDateOfBirth: function (data) {
       if (data) {
         const newDate = new Date(data);
@@ -180,6 +337,10 @@ export default {
         // return year + "-" + month + "-" + day;
       }
     },
+    /**
+     * định dạng tiền tệ  trên giao diện
+     * createBy:Ngọc lê (9/21/2021)
+     */
     formatCurrency(data) {
       if (data) {
         return Intl.NumberFormat("vi", {
@@ -189,14 +350,11 @@ export default {
       }
     },
   },
+  /**
+   *
+   */
   created() {
-    axios
-      .get(`http://cukcuk.manhnv.net/api/v1/Customerss`)
-      .then((res) => {
-        this.customers = res.data;
-        console.log(res);
-      })
-      .catch((error) => console.log(error));
+    this.loadData();
   },
 };
 </script>
@@ -225,6 +383,8 @@ export default {
 
 @import url("../../style/component/input.css");
 
+@import url("../../style/component/combobox.css");
 @import url("../../assets/font/fontawesome-5.15.4/css/all.min.css");
 @import url("../../style/page/employee-info.css");
+@import url("../../style/component/datetime-picker.css");
 </style>

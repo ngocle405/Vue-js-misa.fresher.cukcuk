@@ -1,7 +1,7 @@
 .m-employee-form {
     background-color: #fff;
     width: 770px;
-    height: 900px;
+    /* height: 500px; */
     border-radius: 4px;
     margin-left: 20%;
     position: absolute;
@@ -48,7 +48,7 @@
 
 .m-employee-form .m-employee-navbar {
     width: 220px;
-    height: 680px;
+    height: 400px;
     float: left;
 }
 
@@ -73,7 +73,7 @@
 
 .m-employee-form .m-employee-content {
     width: calc(100% - 220px);
-    height: 720px;
+    height: 500px;
     float: right;
 }
 

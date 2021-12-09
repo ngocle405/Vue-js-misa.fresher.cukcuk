@@ -27,20 +27,16 @@
           id="txtEmployeeId"
           type="hidden"
           fieldName="EmployeeId"
-          placeholder="Nhập mã nhân viên"
         />
         <div class="m-content-row">
           <div class="m-employee-id">
-            <div class="m-employee-text">Mã nhân viên (<span>*</span>)</div>
+            <div class="m-employee-text">Mã khách hàng (<span>*</span>)</div>
             <input
-              ramdomCode
               type="text"
               id="txtEmployeeCode"
               class="m-input"
-              fieldName="EmployeeCode"
-              placeholder="Nhập mã nhân viên"
+              placeholder="Nhập mã kh"
               v-model="customer.CustomerCode"
-              required
             />
           </div>
           <div class="m-employee-name">
@@ -50,7 +46,7 @@
               id="txtEmployeeName"
               class="m-input"
               fieldName="FullName"
-              placeholder="Nhập họ và tên nhân viên"
+              placeholder="Nhập họ và tên khách hàng"
               v-model="customer.FullName"
               required
             />
@@ -77,67 +73,35 @@
                             <item  value="0">nữ</item>
                         </combobox> -->
 
-            <!-- <div id="cbxGender" class="mcombobox" fieldName="Gender">
-                            <input type="text" class="m-combobox" fieldName="Gender">
-                            <button class="m-combobox-button"> <i class="fa fa-chevron-down"></i></button>
-                            <div class="m-combobox-data">
-                                <div class="m-combobox-item" value="1">nam</div>
-                                <div class="m-combobox-item" value="0">nữ</div>
-                            </div>
-                        </div> -->
+            <!-- <div id="cbxGender" class="m-combobox" fieldName="Gender">
+              <input type="text" class="m-combobox" fieldName="Gender" />
+              <button class="m-combobox-button">
+                <i class="fa fa-chevron-down"></i>
+              </button>
+              <div class="m-combobox-data">
+                <div class="m-combobox-item" value="1">nam</div>
+                <div class="m-combobox-item" value="0">nữ</div>
+              </div>
+           
+            </div> -->
+            <select name="" id="" class="m-combobox" v-model="customer.Gender">
+              <option value="1">Nam</option>
+              <option value="0">Nữ</option>
+            </select>
           </div>
         </div>
         <div class="m-content-row">
           <div class="m-employee-citizenId">
-            <div class="m-employee-text">
-              Số CMTND/Căn cước (<span>*</span>)
-            </div>
+            <div class="m-employee-text">Số tiền nợ (<span>*</span>)</div>
             <input
               type="text"
-              id="IdentityNumber"
-              fieldName="IdentityNumber"
               class="m-input"
-              placeholder="Nhập CMTND/Căn cước"
+              placeholder="Nhập tiền nợ"
+              v-model="customer.DebitAmount"
             />
           </div>
-          <div class="m-employee-citizenDate">
-            <div class="m-employee-text">Ngày cấp</div>
+        </div>
 
-            <div class="m-datetime-picker">
-              <input
-                class="m-datetime-text"
-                id="IdentityDate"
-                fieldName="IdentityDate"
-                formatFormType="yyyymmdd"
-                type="date"
-                placeholder="__/__/____"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="m-content-row">
-          <div class="m-employee-citizenPlace">
-            <div class="m-employee-text">Nơi cấp</div>
-            <input
-              type="text"
-              class="m-input"
-              id="IdentityPlace"
-              fieldName="IdentityPlace"
-              placeholder="Nhập nơi cấp CMTND/Căn cước"
-            />
-          </div>
-          <div class="m-employee-citizenPlace">
-            <div class="m-employee-text">Địa chỉ</div>
-            <input
-              type="text"
-              id="txtAddress"
-              class="m-input"
-              fieldName="Address"
-              placeholder="Nhập địa chỉ"
-              required
-            />
-          </div>
-        </div>
         <div class="m-content-row">
           <div class="m-employee-email">
             <div class="m-employee-text">Email (<span>*</span>)</div>
@@ -147,7 +111,7 @@
               class="m-input"
               fieldName="Email"
               placeholder="Nhập Email"
-              required
+              v-model="customer.Email"
             />
           </div>
           <div class="m-employee-phoneNumber">
@@ -192,63 +156,13 @@
                         </div> -->
           </div>
         </div>
-        <div class="m-content-row">
-          <div class="m-employee-taxId">
-            <div class="m-employee-text">Mã số thuế cá nhân</div>
-            <input
-              type="text"
-              class="m-input"
-              id="PersonalTaxCode"
-              fieldName="PersonalTaxCode"
-              placeholder="Nhập mã số thuế cá nhân"
-            />
-          </div>
-          <div class="m-employee-salary">
-            <div class="m-employee-text">Mức lương cơ bản</div>
-            <input
-              type="text"
-              id="txtSalary"
-              class="m-input"
-              fieldName="Salary"
-              formatType="salary"
-              placeholder="Nhập số tiền"
-              required
-            />
-          </div>
-        </div>
-        <div class="m-content-row">
-          <div class="m-employee-dateJoin">
-            <div class="m-employee-text">Ngày gia nhập công ty</div>
-            <div class="m-datetime-picker">
-              <input
-                class="m-datetime-text"
-                id="JoinDate"
-                fieldName="JoinDate"
-                formatFormType="yyyymmdd"
-                type="date"
-                placeholder="__/__/____"
-              />
-            </div>
-          </div>
-          <div class="m-employee-jobStatus">
-            <div class="m-employee-text">Tình trạng công việc</div>
-            <div class="m-dropdown">
-              <div class="m-dropdown-text">Đang làm việc</div>
-              <div class="m-dropdown-down">
-                <i class="fas fa-chevron-down"></i>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="m-employee-footer">
         <button id="btnCloseDialog" class="m-btn-cancel">Hủy</button>
-        <button id="btn-save" class="m-btn-icon" @click="btnSaveOnClick">
-          <i class="far fa-save" style="padding-right: 8px" ></i>Lưu lại
+        <button id="btn-save" class="m-btn-icon" @click="btnSaveOnClick()">
+          <i class="far fa-save" style="padding-right: 8px"></i>Lưu lại
         </button>
-        <button id="btn-update" class="m-btn-icon">
-          <i class="far fa-save" style="padding-right: 8px"></i>Update
-        </button>
+       
       </div>
     </div>
   </div>
@@ -257,10 +171,15 @@
 <script>
 import axios from "axios";
 export default {
-  props: ["isShow"],
+  props: {
+    //nhận cách thuộc tính từ lớp cha(customerlist)
+    isShow: Boolean,
+    CustomerId: String,
+    customer: Object,
+  },
   data() {
     return {
-      customer: { CustomerCode: "10118414" },
+      // customer: {   },
       //  isShow:false
     };
   },
@@ -276,37 +195,37 @@ export default {
      * lưu dữ liệu
      */
     btnSaveOnClick() {
+       this.$emit("save", this.customer);
       //
-      var me=this;
-      //lấy dữ liệu
-      axios
-        .post('http://cukcuk.manhnv.net/api/v1/Customerss',this.customer)
-        .then((res) => {
-          //this.customers = res.data;
-          alert("oke");
-          //thêm thành công thì tự động đóng form
-           me.$emit("showDialog", false);
-           //sự kiện load dữ liệu
-           me.$emit("loadData", false);
-          console.log(res);
-        })
-        .catch(function(res){
-              const statusCode=res.response.status;
-          switch (statusCode) {
-        
-            case 400:
-              alert(res.response.data.userMsg);
-
-              break;
-          
-            default:
-              break;
-          }
-        });
-      //gọi api thực hiện cất dữ liệu
+     
+     
     },
 
+    //
+     btnUpdate(customer) {
+       var me=this;
+      axios
+        .put(
+          `http://cukcuk.manhnv.net/api/v1/Customerss/` + this.CustomerId,
+          customer
+        )
+        .then(() => {
+            alert("oke");
+          //thêm thành công thì tự động đóng form
+          me.$emit("showDialog", false);
+          //sự kiện load dữ liệu
+          me.$emit("loadData", false);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    //
+     
   },
+
+  //
+  
 };
 </script>
 
@@ -315,4 +234,5 @@ export default {
   display: block !important;
 }
 @import url("../../style/page/employee-info.css");
+@import url("../../style/component/combobox.css");
 </style>
